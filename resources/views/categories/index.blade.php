@@ -9,8 +9,11 @@
 @endif
 
 	<div class="row">
-		<div class="col-md-12 text-right">
+		<div class="col-md-6 text-left">
 			<a href="{{ route('categories.create') }}" class="btn btn-primary"> Create category</a>
+		</div>
+		<div class="col-md-6 text-right">
+			<a href="{{ route('categories.trash') }}" class="btn btn-warning"> Trash category</a>
 		</div>
 	</div>
 	<br>

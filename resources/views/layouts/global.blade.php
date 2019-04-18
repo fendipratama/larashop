@@ -72,34 +72,8 @@
                         <a href="{{ route('users.index') }}"><span class="oi oi-people"></span> Manage Users</a>
 					</li> 
 					<li>
-                        <a href="{{ route('categories.index') }}"><span class="oi oi-book"></span> Manage Category</a>
-                    </li> 
-                    {{-- <li>
-                        <a href="{{ route('Categories.create') }}"><span class="oi oi-people"></span> Manage Categories</a>
-                    </li>  --}}                             
-{{--             		<div class="d-block d-md-none">                   
-            			<div class="dropdown-divider">
-            				
-            			</div>                   
-            			<li>
-            				<a href="#"> Profile</a>
-            			</li>                   
-            			<li>
-            				<a href="#"> Setting</a>
-            			</li>        
-            			<li>
-            				<a href="{{ URL::route('users.create') }}"> Create User</a>
-            			</li>
-                        <li>
-                            <a href="{{ URL::route('users.index') }}"> List User</a>
-                        </li>             
-            			<li>                     
-            				<form action="{{route("logout")}}" method="POST">                       
-            					@csrf                       
-            					<button class="dropdown-item" style="cursor:pointer">Sign Out</button>                     
-            				</form>                   
-            			</li>               
-            		</div>    --}}          
+                        <a href="{{ route('categories.index') }}"><span class="oi oi-tag"></span> Manage Category</a>
+                    </li>       
             	</ul>             
             	<div class="pl-3 d-none d-md-block position-fixed" style="bottom: 0px">  
                         <div class="dropdown-divider">
