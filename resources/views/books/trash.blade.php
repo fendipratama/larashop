@@ -55,8 +55,11 @@
                                 <td>{{$book->stock}}</td>
                                 <td>{{$book->price}}</td>
                                 <td>
-                                    <a href="{{route('books.edit', ['id' => $book->id])}}" class="btn btn-info btn-sm">Restore</a>
-                                    <form method="POST" class="d-inline" onsubmit="return confirm('move to trash?')" action="{{route('books.destroy', ['id' => $book->id])}}">
+                                    <form method="POST" action="{{route('books.restore', ['id' => $book->id])}}" class="d-inline">
+                                        @csrf
+                                        <input type="submit" value="Restore" class="btn btn-success">
+                                    </form>
+                                    <form method="POST" action="{{route('books.delete-permanent', ['id' => $book->id])}}" class="d-inline"  onsubmit="return confirm('Delete this book permanently?')">
                                         @csrf
                                         <input type="hidden" value="DELETE" name="_method">
                                         <input type="submit" value="Delete permanent" class="btn btn-danger btn-sm">

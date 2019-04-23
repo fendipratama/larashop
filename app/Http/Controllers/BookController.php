@@ -11,10 +11,18 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $books = \App\Book::with('categories')->paginate(10);
+        //$books = \App\Book::with('categories')->paginate(10);
+        //return view('books.index', ['books' => $books]);
+        $status = $request->get('status');
+
+        if($status){
+            $books = \App\Book::with('categories')->where('status', strtoupper($status))->paginate(10);
+        }else{
+            $books = \App\Book::with('categories')->paginate(10);
+        }
         return view('books.index', ['books' => $books]);
     }
 
@@ -158,5 +166,34 @@ class BookController extends Controller
 
         $book = \App\Book::onlyTrashed()->paginate(10);
         return view('books.trash', ['books' => $book]);
+    }
+
+    public function restore($id){
+
+        $book = \App\Book::withTrashed()->findOrFail($id);
+
+        if($book->trashed()){
+
+            $book->restore();
+            return redirect()->route('books.trash')->with('status', 'Book successfully restored');
+        }else{
+
+            return redirect()->route('books.trash')->with('status', 'Book is not in trash');
+        }
+    }
+
+    public function deletePermanent($id){
+
+        $book = \App\Book::withTrashed()->findOrFail($id);
+
+        if(!$book->trashed()){     
+            
+            return redirect()->route('books.trash')->with('status', 'Book is not in trash!')->with('status_type', 'alert');   
+        }else {     
+            
+            $book->categories()->detach();     
+            $book->forceDelete(); 
+            return redirect()->route('books.trash')->with('status', 'Book permanently deleted!');   
+        }
     }
 }

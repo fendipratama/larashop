@@ -40,6 +40,8 @@ Route::get('/ajax/categories/search', 'CategoryController@ajaxSearch');
 
 //MANAGE BOOK
 Route::get('/books/trash','BookController@trash')->name('books.trash');
+Route::post('/books/{id}/restore', 'BookController@restore')->name('books.restore');
+Route::delete('/books/{id}/delete-permanent', 'BookController@deletePermanent')->name('books.delete-permanent'); 
 Route::resource('books', 'BookController');
 
 
