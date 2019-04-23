@@ -73,7 +73,10 @@
 					</li> 
 					<li>
                         <a href="{{ route('categories.index') }}"><span class="oi oi-tag"></span> Manage Category</a>
-                    </li>       
+					</li>      
+					<li>
+						<a href="{{ route('books.index') }}"><span class="oi oi-book"></span> Manage Book</a>
+					</li> 
             	</ul>             
             	<div class="pl-3 d-none d-md-block position-fixed" style="bottom: 0px">  
                         <div class="dropdown-divider">
@@ -113,5 +116,6 @@
 	integrity="sha384uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" 
 	crossorigin="anonymous">
 </script>
+@yield('footer-scripts')
 </body>
 </html>
