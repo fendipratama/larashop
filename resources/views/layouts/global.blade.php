@@ -77,6 +77,9 @@
 					<li>
 						<a href="{{ route('books.index') }}"><span class="oi oi-book"></span> Manage Book</a>
 					</li> 
+					<li>
+						<a href="{{ route('orders.index') }}"><span class="oi oi-inbox"></span> Manage Order</a>
+					</li> 
             	</ul>             
             	<div class="pl-3 d-none d-md-block position-fixed" style="bottom: 0px">  
                         <div class="dropdown-divider">
